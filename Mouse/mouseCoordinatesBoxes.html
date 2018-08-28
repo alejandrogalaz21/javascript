@@ -33,8 +33,6 @@
   <script>
     const querySelectorAll = document.querySelectorAll('#container div')
 
-    console.log({ querySelectorAll })
-
     // write coordinates in the the dom element
     function writeCoordinates(event, domElement) {
 
@@ -50,8 +48,6 @@
     querySelectorAll.forEach(element => {
       element.addEventListener('mousemove', event => writeCoordinates(event, element))
     })
-
-
 
   </script>
 </body>

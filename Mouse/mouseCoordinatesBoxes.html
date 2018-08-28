@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .flex-container {
+      display: flex;
+      background-color: dodgerblue;
+    }
+
+    .flex-container>div {
+      background-color: beige;
+      height: 300px;
+      width: 300px;
+      margin: 20px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="container" class="flex-container">
+    <div>Box 1</div>
+    <div>Box 2</div>
+    <div>Box 3</div>
+  </div>
+
+  <script>
+    const querySelectorAll = document.querySelectorAll('#container div')
+
+    console.log({ querySelectorAll })
+
+    // write coordinates in the the dom element
+    function writeCoordinates(event, domElement) {
+
+      const x = event.clientX
+      const y = event.clientY
+      const display = `<h1>X : ${x}, Y : ${y}</h1>`
+
+      console.log('X : ', x, ' Y : ', y)
+
+      domElement.innerHTML = display
+    }
+
+    querySelectorAll.forEach(element => {
+      element.addEventListener('mousemove', event => writeCoordinates(event, element))
+    })
+
+
+
+  </script>
+</body>
+
+</html>

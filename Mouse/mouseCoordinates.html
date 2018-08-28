@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>On Mouse Move</title>
+  <style>
+    body {
+      background-color: #000;
+    }
+
+    .container {
+      position: relative;
+      height: 1000px;
+    }
+
+    #coordinates {
+      color: #fff;
+    }
+
+    #movediv {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      height: 20px;
+      width: 20px;
+      background-color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="container" class="container">
+    <div id="coordinates"></div>
+    <div id="moveDiv"></div>
+  </div>
+
+  <script>
+
+    // dom elements
+    const moveDiv = document.getElementById('moveDiv')
+    const container = document.getElementById('container')
+    const coordinates = document.getElementById('coordinates')
+
+    // write coordinates in the the dom element
+    function writeCoordinates(event, domElement) {
+
+      const x = event.clientX
+      const y = event.clientY
+      const display = `<h1>X : ${x}, Y : ${y}</h1>`
+
+      console.log('X : ', x, ' Y : ', y)
+
+      domElement.innerHTML = display
+    }
+
+    // add event listener to the container
+    container.addEventListener('mousemove', event => writeCoordinates(event, coordinates))
+
+
+
+  </script>
+</body>
+
+</html>

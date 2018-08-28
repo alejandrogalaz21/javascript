@@ -87,6 +87,26 @@
     const otherOtherDog = { dog: 'lazy' }
     dogNickname.call(otherOtherDog, 'javascript')
 
+    /*
+    * 'this' inside a class
+    */
+
+    class Room {
+
+      constructor(name) {
+        this.name = name
+      }
+
+      cleanRoom() {
+        console.log(`Clean ' ${this.name} ' room`)
+      }
+
+    }
+
+    const alexRoom = new Room('alejandro galaz')
+
+    alexRoom.cleanRoom()
+
 
 
 

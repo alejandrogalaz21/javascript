@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JS - This Keyword</title>
+</head>
+
+<body>
+  <h1>JS - This Keyword</h1>
+  <script>
+    'use strict';
+
+    // this reference to the global scoope
+    this.name = 'JS - This Keyword'
+    console.log('this.name ', this.name)
+    console.log('window.name ', window.name)
+
+
+    // assiang a object to the global scoope
+    this.garage = {
+      name: 'garage ',
+      clean() {
+        console.log(`cleaning ${this.name}`)
+      }
+    }
+
+    // Acces a object property assinged to the global scoope
+    console.log(`this.garage.door ${this.garage.name}`)
+
+    // this is a private variable
+    let johnsRoom = {
+      name: 'johns Room',
+      clean() {
+        console.log(`cleaning ${this.name}`)
+      }
+    }
+
+    /*
+    * 'this' can not acces to private variables
+    * console.log(this.johnsRoom.name)
+    * Uncaght TypeError: Cannot read property 'name' of undifined
+    */
+    console.log(johnsRoom.name)
+
+    // this inside a object will point to his property
+    this.garage.clean() // garage
+    johnsRoom.clean() // johns room
+
+
+    /*
+    * 'this' inside a function
+    * if you call the next function it would cause
+    * a error . because of the 'use strict' on the top.
+    *
+    * Uncaught TypeError: Cannot read property 'dog' of undefined
+    *
+    * to solve this :
+    * (1).-  .call(this)
+    * (2).-  use arrow functions () => {}
+    */
+
+    this.dog = 'fifo'
+
+    function woof() {
+      console.log(`${this.dog} woof woof woof !!!`)
+    }
+    // (1)
+    woof.call(this)
+    // (2)
+    const woofArrowFunction = () => console.log(`${this.dog} woof woof woof !!! ()=>`)
+    woofArrowFunction()
+
+    // use .call() in a function with parameters
+    function dogNickname(nickname) {
+      console.log(`${this.dog} nick name  is ${nickname}`)
+    }
+
+    dogNickname.call(this, 'firulais')
+
+    // reference to other variables with the same name property
+    this.otherDog = { dog: 'solovino' }
+    dogNickname.call(this.otherDog, 'javascript')
+
+    const otherOtherDog = { dog: 'lazy' }
+    dogNickname.call(otherOtherDog, 'javascript')
+
+
+
+
+  </script>
+</body>
+
+</html>

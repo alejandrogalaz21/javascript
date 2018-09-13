@@ -36,11 +36,11 @@
     // write coordinates in the the dom element
     function writeCoordinates(event, domElement) {
 
-      const x = event.clientX
-      const y = event.clientY
-      const display = `<h1>X : ${x}, Y : ${y}</h1>`
+      const { clientX, clientY } = event
 
-      console.log('X : ', x, ' Y : ', y)
+      const display = `<h1>X : ${clientX}, Y : ${y}</h1>`
+
+      console.log('X : ', clientX, ' Y : ', clientY)
 
       domElement.innerHTML = display
     }

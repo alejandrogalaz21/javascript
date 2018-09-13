@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Psst: have a look at the JavaScript Console 💁</title>
+</head>
+
+<body>
+  <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+  <script>
+
+    const places = ['alabama', 'normandy', 'omaha']
+
+    const localStorage = {}
+
+    localStorage.id = 12423
+    localStorage.name = 'alejandro galaz'
+
+    // transform all the elements to the arrya 
+    // in properties and add more props
+    function createItemsList(matches) {
+      const ob = {}
+      matches.forEach(item => {
+        ob[item.replace(/\s+/g, '_')] = {
+          title: item,
+          description: item,
+          image: new Image({
+            url: 'https://www.theflagshop.co.uk/media/catalog/product/cache/1/thumbnail/9df78eab33525d08d6e5fb8d27136e95/a/r/arizona-flag-std.jpg',
+            alt: item,
+          })
+        }
+      })
+      return ob
+    }
+
+    const locations = ['Bell Rd and West Point Pkwy', 'Bell Rd and Mountain Vista Blvd']
+    const items = createItemsList(locations)
+    localStorage.items = items
+
+
+
+    const op = 'Bell_Rd_and_West_Point_Pkwy'
+    const option = localStorage.items[op].title
+
+    console.log(option)
+  </script>
+</body>
+
+</html>

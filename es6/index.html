@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Template String</title>
+</head>
+
+<body>
+
+  <script>
+
+
+    const inventors = [
+      { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
+      { first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
+      { first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642 },
+      { first: 'Marie', last: 'Curie', year: 1867, passed: 1934 }
+    ]
+
+
+    // javascript difference between null and undefined
+
+    // What are template literals in Es6?
+    let a = "Hello";
+    let b = "John";
+    let c = `${a} ${b}`;
+    console.log(c); //outputs Hello John;
+
+    // nevarez
+    // no
+
+    // What is the ES6 map feature ?
+
+    // What is the ES6 filter feature ? 
+
+    // What is the ES6 reduce feature ?
+     
+
+    // What is the ES6 some feature ?
+    function isBiggerThan10(element, index, array) {
+      return element > 10;
+    }
+
+    const albertExist = (item, name) => item.first === name
+
+    [2, 5, 8, 1, 4].some(isBiggerThan10);  // false
+    [12, 5, 8, 1, 4].some(isBiggerThan10); // true 
+
+    // What is Spread Operator in ES6 ?
+    let a = [7, 8, 9];
+    let b = [1, 2, 3, ...a, 10];
+    console.log(b); // [1,2,3,7,8,9,10]
+
+    // Explain Destructuring Assignment in ES6 ?
+
+    // What is the best way to create Private Properties in ES6? 
+    var property = Symbol();
+    class Something {
+      constructor() {
+        this[property] = "test";
+      }
+    }
+    var instance = new Something();
+    console.log(instance.property); //=> undefined, can only access with access to theSymbol
+
+
+    // What is Babel?   
+
+  </script>
+</body>
+
+</html>

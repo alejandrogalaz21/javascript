@@ -32,9 +32,14 @@
     // Generates a random number
     const generateId = () => Math.floor(Math.random() * 1000)
 
-    //Will return a number inside the given range, inclusive of both minimum and maximum
-    //i.e. if min=0, max=20, returns a number from 0-20
+    // Will return a number inside the given range, inclusive of both minimum and maximum
+    // i.e. if min=0, max=20, returns a number from 0-20.
     const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min
+
+    // helper function for array.filter
+    // find the matching words in the  
+    // property set it of the object.
+    const findWordMatch = (item, word, prop) => item[prop].match(new RegExp(word, 'gi'))
 
   </script>
 </body>

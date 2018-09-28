@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CRUD ARRAY</title>
+</head>
+
+<body>
+  <script>
+    // ( C ) Add a new item to the Array
+    const addItem = (list, item) => [...list, item]
+    // ( R ) Find item by id from a Array and return the object
+    const findItem = (list, id) => list.find(i => i.id === id)
+    // ( U ) Update item from a Array
+    const updatedItem = (list, item) => {
+      const index = list.findIndex(i => i.id === item.id)
+      return [...list.slice(0, index), item, ...list.slice(index + 1)]
+    }
+
+    // update by id
+    function updateById(list, id, obj) {
+      const index = findById(list, id)
+      list[index] = { ...list[index], obj }
+      return [...list]
+    }
+
+    // ( D ) Deletes a item from a Array
+    const deleteItem = (list, id) => list.filter(i => i.id !== id)
+    // Generates a random number
+    const generateId = () => Math.floor(Math.random() * 1000)
+
+    //Will return a number inside the given range, inclusive of both minimum and maximum
+    //i.e. if min=0, max=20, returns a number from 0-20
+    const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min
+
+  </script>
+</body>
+
+</html>

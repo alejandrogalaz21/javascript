@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue App</title>
+  <!-- development version, includes helpful console warnings -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+  <div id="app">
+    {{ message }}
+  </div>
+
+  <div id="app-2">
+    <span v-bind:title="message">
+      Hover your mouse over me for a few seconds
+      to see my dynamically bound title!
+    </span>
+  </div>
+
+  <div id="app-3">
+    <span v-if="seen">Now you see me</span>
+  </div>
+
+  <div id="app-4">
+    <ol>
+      <li v-for="todo in todos">
+        {{ todo.text }}
+      </li>
+    </ol>
+  </div>
+
+  <div id="app-5">
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMessage">Reverse Message</button>
+  </div>
+
+  <div id="app-6">
+    <p>{{ message }}</p>
+    <input v-model="message">
+  </div>
+
+  <script>
+    // bind prop
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue!'
+      }
+    })
+
+    // bind property to html attribute props
+    const app2 = new Vue({
+      el: '#app-2',
+      data: {
+        message: `You loaded this page on  ${new Date().toLocaleString()}`
+      }
+    })
+
+    // bind element if is true
+    const app3 = new Vue({
+      el: '#app-3',
+      data: {
+        seen: true
+      }
+    })
+
+    // display array list
+    const app4 = new Vue({
+      el: '#app-4',
+      data: {
+        todos: [
+          { text: 'Learn JavaScript' },
+          { text: 'Learn Vue' },
+          { text: 'Build something awesome' }
+        ]
+      }
+    })
+
+    // handle click directive
+    const app5 = new Vue({
+      el: '#app-5',
+      data: {
+        message: 'Hello Vue.js!'
+      },
+      methods: {
+        reverseMessage: function () {
+          this.message = this.message.split('').reverse().join('')
+        }
+      }
+    })
+
+    // data biding input
+    const app6 = new Vue({
+      el: '#app-6',
+      data: {
+        message: 'Hello Vue!'
+      }
+    })
+
+    // add element
+    const addElement = (list, element) => [...list, element]
+    // find by id
+    const findById = (list, id) => list.findIndex(item => item.id === id)
+    // remove element by id
+    const removeById = (list, id) => list.filter(item => item.id === id)
+
+    // update by id
+    function updateById(list, id, obj) {
+      const index = findById(list, id)
+      list[index] = { ...list[index], obj }
+      return [...list]
+    }
+
+    function searchIndex() {
+
+    }
+
+    const heroes = [
+      { id: 1, name: 'batman' },
+      { id: 2, name: 'superman' },
+    ]
+
+    const findBatman = item => item.name == 'batman'
+    // Encontrar si alguno de los objectos contienen un valor que sea batman
+    console.log(`Objeto que tiene batman ${heroes.some(findBatman)}`)
+    // Encontrar la posicion del array que contiene el valor 'batman'
+    console.log(`Posicion del objeto que tiene el valor batman`)
+    console.table(heroes.find(findBatman))
+  </script>
+</body>
+
+</html>
